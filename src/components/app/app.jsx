@@ -1,15 +1,14 @@
 import {restaurants} from '/materials/mock.js';
-import {Restaurants} from "../restaurant/restaurant.jsx";
+import {Layout} from "../layout/layout.jsx";
+import {RestaurantTabs} from "../restaurant/restaurant-tabs.jsx";
 
 export const App = ({title}) => {
     return (
-        <div>
-            <h1>{title}</h1>
-            <ul>
-                {restaurants.map((restaurant) => (
-                    <Restaurants key={restaurant.id} restaurant={restaurant}/>
-                ))}
-            </ul>
-        </div>
+        <>
+            <h1 className="restaurant-name">{title}</h1>
+            <Layout>
+                <RestaurantTabs restaurants={restaurants} />
+            </Layout>
+        </>
     )
 }

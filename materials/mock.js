@@ -139,4 +139,39 @@ export const restaurants = [
             },
         ],
     },
+    {
+        id: "bcb4aef6-c739-4fc1-aa5f-73aebf62b010",
+        name: "Papa Json",
+        menu: [
+            {
+                id: "c031c6a2-07da-46a4-862b-d27fcf23895b",
+                name: "Json Bread",
+                price: 10,
+                ingredients: ["bread"],
+            },
+            {
+                id: "5dea7896-05d5-49aa-ad58-e0602d63fa28",
+                name: "Json Burger",
+                price: 10,
+                ingredients: ["bread", "beef"],
+            },
+        ],
+        reviews: [
+
+        ],
+    },
+    {
+        id: "15e47bdf-a560-431a-a538-7ef91e895031",
+        name: "Mama Mia",
+        menu: [
+        ],
+        reviews: [
+            {
+                id: "d023c4be-841d-46b4-acce-a874a72e2448",
+                user: "Freya",
+                text: "Cool!",
+                rating: 9,
+            },
+        ],
+    },
 ];
