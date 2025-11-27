@@ -1,4 +1,4 @@
-import {Menu} from "../menu/menu.jsx";
+import {DishListItem} from "../dish/dish-list-item.jsx";
 import {Review} from "../review/review.jsx";
 
 export const Restaurant = ({restaurant}) => {
@@ -12,12 +12,10 @@ export const Restaurant = ({restaurant}) => {
             {menu.length ?
                 (<ul>
                     {menu.map((menu) => (
-                        <Menu key={menu.id} menu={menu}/>
+                        <DishListItem key={menu.id} menu={menu}/>
                     ))}
                 </ul>) : (
-                    <>
-                        <ul>Блюд в меню нет в наличии.</ul>
-                    </>
+                    <div>Блюд в меню нет в наличии.</div>
                 )
             }
             <h3 className="header-restaurant">Отзывы</h3>
@@ -26,9 +24,7 @@ export const Restaurant = ({restaurant}) => {
                     <Review key={review.id} review={review}/>
                 ))}
             </ul>) : (
-                <>
-                    <ul>Отзывов пока что нет.</ul>
-                </>
+                <div>Отзывов пока что нет.</div>
             )}
         </div>
     );

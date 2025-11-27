@@ -18,6 +18,15 @@ body {
     text-align: center;
 }
 
+.title {
+    color: #dbc4a4;
+    -webkit-text-stroke: 0.5px #c8a470;
+    font-weight: 700;
+    padding-top: 10px;
+    margin-top: 0;
+    text-align: center;
+}
+
 .header {
     color: #dbc4a4;
     -webkit-text-stroke: 0.5px #c8a470;

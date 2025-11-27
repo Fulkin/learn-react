@@ -1,10 +1,10 @@
 import {Counter} from "../counter/counter.jsx";
 
-export const Menu = ({menu}) => {
-        const {id, name, price} = menu;
+export const DishListItem = ({menu}) => {
+        const {name, price} = menu;
 
         return (
-            <li key={id} className="menu-group">
+            <li className="menu-group">
                 <span className="menu-item">{name}</span>
                 <span className="price-item">{`${price} у.е.`}</span>
                 <Counter/>
