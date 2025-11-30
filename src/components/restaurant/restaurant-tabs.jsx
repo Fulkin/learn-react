@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Restaurant} from "./restaurant.jsx";
+import {Tab} from "../tab/tab.jsx";
 
 export const RestaurantTabs = ({restaurants}) => {
 
@@ -16,19 +17,12 @@ export const RestaurantTabs = ({restaurants}) => {
     return (
         <div>
             <div className="menu-group">
-                {restaurants.map(restaurant => (
-                    <button
-                        key={restaurant.id}
-                        onClick={() => handleTabClick(restaurant.id)}
-                        className={
-                            "restaurant-tab-button " +
-                            (restaurant.id === activeId
-                                ? "restaurant-tab-button-active"
-                                : "restaurant-tab-button-unactive")
-                        }
-                    >
-                        {restaurant.name}
-                    </button>
+                {restaurants.map(({id, name}) => (
+                    <Tab key={id}
+                         title={name}
+                         onClick={() => handleTabClick(id)}
+                         isActive={id === activeId}
+                    />
                 ))}
             </div>
 

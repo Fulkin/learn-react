@@ -1,5 +1,7 @@
 import {DishListItem} from "../dish/dish-list-item.jsx";
 import {Review} from "../review/review.jsx";
+import {ReviewFrom} from "../review-form/review-form.jsx";
+import {Counter} from "../counter/counter.jsx";
 
 export const Restaurant = ({restaurant}) => {
 
@@ -18,6 +20,8 @@ export const Restaurant = ({restaurant}) => {
                     <div>Блюд в меню нет в наличии.</div>
                 )
             }
+            <Counter/>
+            <p/>
             <h3 className="header-restaurant">Отзывы</h3>
             {reviews.length ? (<ul>
                 {reviews.map((review) => (
@@ -26,6 +30,7 @@ export const Restaurant = ({restaurant}) => {
             </ul>) : (
                 <div>Отзывов пока что нет.</div>
             )}
+            <ReviewFrom/>
         </div>
     );
 }

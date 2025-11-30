@@ -6,9 +6,9 @@ export const Counter = () => {
 
     return (
         <>
-            <button className="button" onClick={decrement}>-</button>
+            <button className="button-sign" onClick={decrement}>-</button>
             <span className="counter">{count}</span>
-            <button className="button" onClick={increment}>+</button>
+            <button className="button-sign" onClick={increment}>+</button>
         </>
     );
 }

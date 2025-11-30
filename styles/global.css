@@ -43,11 +43,17 @@ body {
     border-radius: 5px;
 }
 
-.button {
+.button-sign {
     background: #dbc4a4;
     color: #7c4f22;
     display: inline-block;
     width: 25px;
+    text-align: center;
+}
+
+.button-clear {
+    background: #7b4f22;
+    color: #f3caa3;
     text-align: center;
 }
 
@@ -81,9 +87,33 @@ body {
     letter-spacing: 0.5px;
 }
 
+.form-group {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.form-title-item {
+    width: 75px;
+    font-size: 1.05rem;
+    color: #dac3a3;
+}
+
+.form-input-item {
+    width: 75px;
+    color: #f1c9a2;
+    background: #7a4f22;
+    font-size: 1.05em;
+    letter-spacing: 0.5px;
+}
+
 .counter {
     width: 20px;
     text-align: center
+}
+
+.form-group {
+    display: flex;
+    padding-right: 50px;
 }
 
 .restaurant-tab-button {
@@ -92,16 +122,18 @@ body {
     padding: 10px;
     border: none;
     border-radius: 10px;
-}
-
-.restaurant-tab-button-unactive {
-    background: #7b4f22;
-    color: #f3caa3;
-}
-
-.restaurant-tab-button-active {
     background: #b57534;
     color: #513215;
+}
+
+.restaurant-tab-button:disabled {
+    font-size: 1.05em;
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #7b4f22;
+    color: #f3caa3;
 }
 
 .grey-star {
