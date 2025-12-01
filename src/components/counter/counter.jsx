@@ -1,14 +1,10 @@
-import {useRangeCounter} from "./use-range-counter.jsx";
-
-export const Counter = () => {
-
-    const {count, increment, decrement} = useRangeCounter({min: 0, max: 5});
+export const Counter = ({value, increment, decrement}) => {
 
     return (
         <>
-            <button className="button-sign" onClick={decrement}>-</button>
-            <span className="counter">{count}</span>
             <button className="button-sign" onClick={increment}>+</button>
+            <span className="counter">{value}</span>
+            <button className="button-sign" onClick={decrement}>-</button>
         </>
     );
 }
