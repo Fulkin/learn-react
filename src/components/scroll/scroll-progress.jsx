@@ -26,19 +26,17 @@ export const ScrollProgress = () => {
     }, []);
 
     return (
-        <>
+        <div
+            className="scroll-progress-wrapper"
+        >
             <div
-                className="scroll-progress-wrapper"
-            >
-                <div
-                    style={{
-                        height: "100%",
-                        width: `${scrollPercent}%`,
-                        backgroundColor: "#c1c2c4",
-                        transition: "width 0s linear",
-                    }}
-                />
-            </div>
-        </>
+                style={{
+                    height: "100%",
+                    width: `${scrollPercent}%`,
+                    backgroundColor: "#c1c2c4",
+                    transition: "width 0s linear",
+                }}
+            />
+        </div>
     )
 }

@@ -1,4 +1,5 @@
 import {useReducer} from "react";
+import {Counter} from "../counter/counter.jsx";
 
 const INITIAL_FORM = {
     name: "",
@@ -35,7 +36,7 @@ export const ReviewFrom = () => {
 
 
     return (
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
             <div className="form-group">
                 <label className="form-title-item">Name</label>
                 <input
@@ -58,15 +59,7 @@ export const ReviewFrom = () => {
             </div>
             <div className="form-group">
                 <label className="form-title-item">Rating</label>
-                <input
-                    className="form-input-item"
-                    type="number" min="1" max="5" required
-                    value={rating}
-                    onChange={(e) => {
-                        dispatch({payload: e.target.value, type: UPDATE_RATING_ACTION})
-                    }}
-
-                />
+                <Counter/>
             </div>
             <button
                 className="button-clear"
