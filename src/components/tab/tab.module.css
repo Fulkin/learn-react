@@ -1,0 +1,19 @@
+.button {
+    font-size: 1.05em;
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #b57534;
+    color: #513215;
+}
+
+.button:disabled {
+    font-size: 1.05em;
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #7b4f22;
+    color: #f3caa3;
+}

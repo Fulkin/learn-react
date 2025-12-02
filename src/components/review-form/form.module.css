@@ -1,0 +1,25 @@
+.group {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.title {
+    width: 75px;
+    font-size: 1.05rem;
+    color: #dac3a3;
+}
+
+.input {
+    width: 75px;
+    color: #603e13;
+    background: #dac3a3;
+    font-size: 1.05em;
+    letter-spacing: 0.5px;
+}
+
+.button_clear {
+    background: #7b4f22;
+    color: #f3caa3;
+    text-align: center;
+    border-radius: 5px;
+}

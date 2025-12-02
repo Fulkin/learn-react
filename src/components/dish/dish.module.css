@@ -1,0 +1,21 @@
+.group {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.menu {
+    width: 200px;
+    padding: 1px;
+    color: #dac3a3;
+    font-size: 1.05rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+
+}
+
+.price {
+    width: 75px;
+    color: #dbc4a4;
+    background: #35393c;
+    font-size: 1.05em;
+    letter-spacing: 0.5px;
+}

@@ -1,0 +1,25 @@
+.container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.button {
+    background: #dac3a3;
+    color: #7b4f22;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    border-radius: 6px;
+    border: none;
+}
+
+.button:hover {
+    background-color: #b47434;
+    color: #513215;
+}
+
+.counter {
+    width: 20px;
+    text-align: center;
+}
