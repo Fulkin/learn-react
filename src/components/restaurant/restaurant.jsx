@@ -24,11 +24,6 @@ export const Restaurant = ({restaurant}) => {
                     <div>Блюд в меню нет в наличии.</div>
                 )
             }
-            <Counter
-                value={count}
-                increment={increment}
-                decrement={decrement}
-            />
             <p/>
             <h3 className={styles.header_title}>Отзывы</h3>
             {reviews.length ? (<ul>
