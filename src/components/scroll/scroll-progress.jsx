@@ -10,7 +10,7 @@ export const ScrollProgress = () => {
             className={styles.container}
         >
             <div
-                className={styles.progress_bar}
+                className={styles.progressBar}
                 style={{
                     width: `${scrollPercent}%`,
                 }}

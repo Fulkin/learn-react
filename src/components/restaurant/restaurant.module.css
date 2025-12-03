@@ -10,7 +10,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.restaurant_name {
+.restaurantName {
     color: #dbc4a4;
     -webkit-text-stroke: 0.5px #c8a470;
     font-weight: 700;
@@ -19,7 +19,7 @@
     text-align: center;
 }
 
-.header_title {
+.headerTitle {
     background: #dbc4a4;
     color: #7c4f22;
     margin: 10px;

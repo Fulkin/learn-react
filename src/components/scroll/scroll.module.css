@@ -8,7 +8,7 @@
     z-index: 9999;
 }
 
-.progress_bar {
+.progressBar {
     height: 100%;
     background-color: #c1c2c4;
     transition: width 0s linear;

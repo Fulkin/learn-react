@@ -39,7 +39,7 @@ export const ReviewFrom = () => {
                 />
             </div>
             <button
-                className={styles.button_clear}
+                className={styles.buttonClear}
                 type="button"
                 onClick={clear}
             >
