@@ -2,6 +2,8 @@ import {useState} from "react";
 import {Restaurant} from "./restaurant.jsx";
 import {Tab} from "../tab/tab.jsx";
 
+import styles from "./restaurant.module.css";
+
 export const RestaurantTabs = ({restaurants}) => {
 
     const [activeId, setActiveId] = useState(restaurants[0].id);
@@ -16,7 +18,7 @@ export const RestaurantTabs = ({restaurants}) => {
 
     return (
         <div>
-            <div className="menu-group">
+            <div className={styles.menuGroup}>
                 {restaurants.map(({id, name}) => (
                     <Tab key={id}
                          title={name}

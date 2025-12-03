@@ -3,7 +3,7 @@ import {useReducer} from "react";
 const INITIAL_FORM = {
     name: "",
     text: "",
-    rating: "1",
+    rating: 1,
 }
 
 const UPDATE_NAME_ACTION = 'UPDATE_NAME_ACTION';
