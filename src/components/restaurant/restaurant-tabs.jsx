@@ -18,7 +18,7 @@ export const RestaurantTabs = ({restaurants}) => {
 
     return (
         <div>
-            <div className={styles.menu_group}>
+            <div className={styles.menuGroup}>
                 {restaurants.map(({id, name}) => (
                     <Tab key={id}
                          title={name}
