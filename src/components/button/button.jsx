@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import classNames from "classnames";
 import styles from "./button.module.css";
-import {ThemeContext} from "../theme-context/theme-context.js";
+import {ThemeContext} from "../theme-context/index.js";
 
 export const Button = ({
                            title,
@@ -9,7 +9,7 @@ export const Button = ({
                            disabled,
                            type,
                        }) => {
-    const {theme} = useContext(ThemeContext);
+    const theme = useContext(ThemeContext);
 
     return (
         <button

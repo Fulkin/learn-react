@@ -1,12 +1,11 @@
 import styles from './layout.module.css';
-import {ToggleThemeButton} from "../toggle-theme-button/toggle-theme-button.jsx";
+import {Header} from "../header/header.jsx";
 
 export const Layout = ({title, children}) => {
 
     return (
         <>
-            <header className={styles.header}>{title}</header>
-            <ToggleThemeButton/>
+            <Header title={title}/>
             <main>{children}</main>
             <footer className={styles.footer}>©2025 Restaurants</footer>
         </>

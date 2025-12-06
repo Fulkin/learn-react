@@ -10,9 +10,9 @@
 }
 
 .input {
-    width: 75px;
+    width: 100px;
     color: #603e13;
     background: #dcbf77;
-    font-size: 1.05em;
+    font-size: 100%;
     letter-spacing: 0.5px;
 }
