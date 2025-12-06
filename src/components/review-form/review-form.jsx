@@ -2,6 +2,7 @@ import {Counter} from "../counter/counter.jsx";
 import {useForm} from "./use-form.jsx";
 
 import styles from "./form.module.css";
+import {Button} from "../button/button.jsx";
 
 export const ReviewFrom = () => {
     const {form, setName, setText, incrementRating, decrementRating, clear} = useForm();
@@ -38,13 +39,10 @@ export const ReviewFrom = () => {
                     decrement={decrementRating}
                 />
             </div>
-            <button
-                className={styles.buttonClear}
-                type="button"
+            <Button
+                title="Clear"
                 onClick={clear}
-            >
-                Clear
-            </button>
+            />
         </form>
     )
 }

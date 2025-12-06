@@ -1,8 +1,8 @@
 import {useState} from "react";
 import {Restaurant} from "./restaurant.jsx";
-import {Tab} from "../tab/tab.jsx";
 
 import styles from "./restaurant.module.css";
+import {Button} from "../button/button.jsx";
 
 export const RestaurantTabs = ({restaurants}) => {
 
@@ -18,12 +18,14 @@ export const RestaurantTabs = ({restaurants}) => {
 
     return (
         <div>
+            <div className={styles.navigation}>Navigation</div>
             <div className={styles.menuGroup}>
                 {restaurants.map(({id, name}) => (
-                    <Tab key={id}
-                         title={name}
-                         onClick={() => handleTabClick(id)}
-                         isActive={id === activeId}
+                    <Button key={id}
+                            title={name}
+                            onClick={() => handleTabClick(id)}
+                            disabled={id === activeId}
+                            type="tab"
                     />
                 ))}
             </div>

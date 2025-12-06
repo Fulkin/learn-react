@@ -3,16 +3,16 @@ import {Layout} from "../layout/layout.jsx";
 import {RestaurantTabs} from "../restaurant/restaurant-tabs.jsx";
 import {ScrollProgress} from "../scroll/scroll-progress.jsx";
 
-import styles from "./app.module.css"
+import {ThemeContextProvider} from "../theme-context/theme-context-provider.jsx";
 
 export const App = ({title}) => {
+
     return (
-        <>
+        <ThemeContextProvider>
             <ScrollProgress/>
-            <h1 className={styles.title}>{title}</h1>
-            <Layout>
+            <Layout title={title}>
                 <RestaurantTabs restaurants={restaurants}/>
             </Layout>
-        </>
+        </ThemeContextProvider>
     )
 }
