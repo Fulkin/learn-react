@@ -1,22 +1,10 @@
 import styles from "./header.module.css";
 import {ToggleThemeButton} from "../toggle-theme-button/toggle-theme-button.jsx";
-import {useContext} from "react";
-import {EnterUserContext, UserContext} from "../user-context/index.js";
 import {Button} from "../button/button.jsx";
+import {useAuthUser} from "../auth-user/use-auth-user.jsx";
 
 export const Header = ({title}) => {
-    const setUser = useContext(EnterUserContext);
-    const user = useContext(UserContext);
-
-    const handleLogin = () => {
-        const userData = {name: 'Иван Иванов'}; // из ответа сервера
-        setUser(userData);
-    };
-
-    const handleLogout = () => {
-        setUser(null);
-    };
-
+    const {user, handleLogin, handleLogout} = useAuthUser();
 
     return (
         <header>
