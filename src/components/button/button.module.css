@@ -1,0 +1,48 @@
+.button {
+    font-size: 1.05em;
+    display: inline-block;
+    text-align: center;
+    border-radius: 6px;
+    border: none;
+}
+
+.counter {
+    height: 100%;
+    width: 100%;
+}
+
+.tab {
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.light {
+    background: #f1e0d1;
+    color: #7b4f22;
+
+    &:hover {
+        background: #b47434;
+        color: #513215;
+    }
+
+    &:disabled {
+        background: #7b4f22;
+        color: #f3caa3;
+    }
+}
+
+.dark {
+    background: #b47434;
+    color: #513215;
+
+    &:hover {
+        background: #dac3a3;
+        color: #7b4f22;
+    }
+
+    &:disabled {
+        background: #513215;
+        color: #b37334;
+    }
+}

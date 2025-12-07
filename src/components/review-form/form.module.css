@@ -10,16 +10,9 @@
 }
 
 .input {
-    width: 75px;
+    width: 100px;
     color: #603e13;
-    background: #dac3a3;
-    font-size: 1.05em;
+    background: #dcbf77;
+    font-size: 100%;
     letter-spacing: 0.5px;
-}
-
-.buttonClear {
-    background: #7b4f22;
-    color: #f3caa3;
-    text-align: center;
-    border-radius: 5px;
 }
