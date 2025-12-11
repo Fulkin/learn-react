@@ -2,9 +2,14 @@ import {Counter} from "../counter/counter.jsx";
 import {useRangeCounter} from "../counter/use-range-counter.jsx";
 
 import styles from "./dish.module.css";
+import {useSelector} from "react-redux";
+import {selectDishById} from "../../redux/entity/dish/slice.js";
 
-export const DishListItem = ({menu}) => {
-        const {name, price} = menu;
+export const DishListItem = ({dishId}) => {
+        const dish = useSelector((state) =>
+            selectDishById(state, dishId)
+        );
+        const {name, price} = dish;
 
         const {count, increment, decrement} = useRangeCounter({min: 0, max: 5});
 

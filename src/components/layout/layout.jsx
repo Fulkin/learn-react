@@ -5,7 +5,7 @@ export const Layout = ({title, children}) => {
 
     return (
         <>
-            <Header title={title}/>
+            <Header title='Restaurants'/>
             <main>{children}</main>
             <footer className={styles.footer}>©2025 Restaurants</footer>
         </>
