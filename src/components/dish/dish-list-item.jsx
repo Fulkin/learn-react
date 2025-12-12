@@ -10,15 +10,16 @@ export const DishListItem = ({dishId}) => {
             selectDishById(state, dishId)
         );
         const {name, price} = dish;
+        const id = dishId;
 
-        const {count, increment, decrement} = useRangeCounter({min: 0, max: 5});
+        const {value, increment, decrement} = useRangeCounter({id});
 
         return (
             <li className={styles.group}>
                 <span className={styles.menu}>{name}</span>
                 <span className={styles.price}>{`${price} у.е.`}</span>
                 <Counter
-                    value={count}
+                    value={value}
                     increment={increment}
                     decrement={decrement}
                 />
