@@ -1,6 +1,6 @@
 import styles from './star-rating.module.css';
 
-export const StarRating = (rating) => {
+export const StarRating = ({rating}) => {
     return (
         <div>
             {[...Array(5)].map((_, i) => (

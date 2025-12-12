@@ -1,17 +1,16 @@
-import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart, deleteFromCart, selectAmountById} from "../../redux/cart/slice.js";
 
-export const useRangeCounter = ({min, max}) => {
-    const [count, setCount] = useState(0);
+export const useRangeCounter = ({id}) => {
+    const dispatch = useDispatch();
+    const amount = useSelector((state) => selectAmountById(state, id));
 
-    const increment = () => {
-        const number = count + 1;
-        setCount(number > max ? max : number);
-    };
-    const decrement = () => {
-        const number = count - 1;
-        setCount(number < min ? min : number);
-    };
+    const increment = () => dispatch(addToCart(id));
+    const decrement = () => dispatch(deleteFromCart(id));
+
     return {
-        count, increment, decrement
+        value: amount || 0,
+        increment,
+        decrement
     };
 }

@@ -1,13 +1,15 @@
 import styles from './layout.module.css';
 import {Header} from "../header/header.jsx";
+import {Cart} from "../cart/cart.jsx";
 
-export const Layout = ({title, children}) => {
+export const Layout = ({children}) => {
 
     return (
-        <>
-            <Header title={title}/>
+        <div>
+            <Header title='Restaurants'/>
             <main>{children}</main>
+            <Cart/>
             <footer className={styles.footer}>©2025 Restaurants</footer>
-        </>
+        </div>
     );
 };

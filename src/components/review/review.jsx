@@ -1,15 +1,19 @@
 import {StarRating} from "../star-rating/star-rating.jsx";
+import {useSelector} from "react-redux";
+import {selectReviewById} from "../../redux/entity/review/slice.js";
+import {ReviewUser} from "../review-user/review-user.jsx";
 
-import styles from "./review.module.css";
-
-export const Review = ({review}) => {
-    const {user, text, rating} = review;
+export const Review = ({reviewId}) => {
+    const review = useSelector((state) =>
+        selectReviewById(state, reviewId)
+    );
+    const {userId, text, rating} = review;
 
     return (
         <li>
-            <div className={styles.root}>{user}:</div>
+            <ReviewUser userId={userId}/>
             <div>{text}</div>
-            {StarRating(rating)}
+            <StarRating rating={rating}/>
         </li>
     )
 };
