@@ -1,21 +1,24 @@
-import {restaurants} from '/materials/mock.js';
 import {Layout} from "../layout/layout.jsx";
-import {RestaurantTabs} from "../restaurant/restaurant-tabs.jsx";
+import {Tabs} from "../tabs/tabs.jsx";
 import {ScrollProgress} from "../scroll/scroll-progress.jsx";
 
 import {ThemeContextProvider} from "../theme-context/theme-context-provider.jsx";
 import {UserContextProvider} from "../user-context/user-context-provider.jsx";
+import {Provider} from "react-redux";
+import {store} from "../../redux/store.js";
 
-export const App = ({title}) => {
+export const App = () => {
 
     return (
-        <ThemeContextProvider>
-            <UserContextProvider>
-                <ScrollProgress/>
-                <Layout title={title}>
-                    <RestaurantTabs restaurants={restaurants}/>
-                </Layout>
-            </UserContextProvider>
-        </ThemeContextProvider>
+        <Provider store={store}>
+            <ThemeContextProvider>
+                <UserContextProvider>
+                    <ScrollProgress/>
+                    <Layout>
+                        <Tabs/>
+                    </Layout>
+                </UserContextProvider>
+            </ThemeContextProvider>
+        </Provider>
     )
 }

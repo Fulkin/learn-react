@@ -17,8 +17,6 @@ export const useScroll = () => {
 
         handleScroll();
         window.addEventListener("scroll", handleScroll, {passive: true});
-
-        console.log(scrollPercent);
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
