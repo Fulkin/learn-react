@@ -3,10 +3,9 @@ import {selectRestaurantById} from "../../redux/entity/restaurant/slice.js";
 import {Restaurant} from "./restaurant.jsx";
 
 export const RestaurantContainer = ({restaurantId}) => {
-    const restaurant = useSelector((state) => {
-
-        return selectRestaurantById(state, restaurantId);
-    });
+    const restaurant = useSelector((state) =>
+        selectRestaurantById(state, restaurantId)
+    );
 
     if (!restaurant) {
         return null;

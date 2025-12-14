@@ -1,10 +1,12 @@
 import {useSelector} from "react-redux";
 import {selectCartItems} from "../../redux/cart/slice.js";
+import {CartItem} from "./cart-item.jsx";
 
 export const Cart = () => {
     const items = useSelector(selectCartItems);
+    console.log(items);
 
-    if (!items) {
+    if (!items || items.length === 0) {
         return <div>Корзина пустая.</div>;
     }
 
@@ -12,7 +14,7 @@ export const Cart = () => {
         <ul>
             {items.map(({id, amount}) => (
                     <li key={id}>
-                        {id} - {amount}
+                        <CartItem id={id} amount={amount}/>
                     </li>
                 )
             )}
