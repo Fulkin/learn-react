@@ -1,0 +1,9 @@
+.root {
+    color: wheat;
+    text-decoration: none;
+}
+
+.active {
+    pointer-events: none;
+    color: gray;
+}

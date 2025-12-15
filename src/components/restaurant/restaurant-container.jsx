@@ -2,9 +2,9 @@ import {useSelector} from "react-redux";
 import {selectRestaurantById} from "../../redux/entity/restaurant/slice.js";
 import {Restaurant} from "./restaurant.jsx";
 
-export const RestaurantContainer = ({restaurantId}) => {
+export const RestaurantContainer = ({id}) => {
     const restaurant = useSelector((state) =>
-        selectRestaurantById(state, restaurantId)
+        selectRestaurantById(state, id)
     );
 
     if (!restaurant) {
