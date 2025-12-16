@@ -3,7 +3,27 @@
     text-decoration: none;
 }
 
+
+.headerTitle {
+    background: #ddc078;
+    color: #7c4f22;
+    margin: 10px;
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 5px;
+
+    &:hover {
+        background: #b47434;
+        color: #513215;
+    }
+
+    &:disabled {
+        background: #7b4f22;
+        color: #f3caa3;
+    }
+}
+
 .active {
-    pointer-events: none;
-    color: gray;
+    background: #7c4f22;
+    color: #ddc078;
 }

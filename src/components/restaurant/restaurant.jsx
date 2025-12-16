@@ -1,34 +1,43 @@
-import {DishListItem} from "../dish/dish-list-item.jsx";
-import {Review} from "../review/review.jsx";
-import {ReviewFrom} from "../review-form/review-form.jsx";
-
 import styles from "./restaurant.module.css";
+import {NavLink} from "react-router";
+import classNames from "classnames";
+import {useContext} from "react";
+import {ThemeContext} from "../theme-context/index.js";
 
-export const Restaurant = ({name, menu, reviews}) => {
+export const Restaurant = ({name}) => {
+
+    const theme = useContext(ThemeContext);
+
     return (
-        <div className={styles.menu}>
-            <h2 className={styles.restaurantName}>{name}</h2>
-            <h3 className={styles.headerTitle}>Меню</h3>
-            {menu.length ?
-                (<ul>
-                    {
-                        menu.map((dishId) => <DishListItem key={dishId} dishId={dishId}/>)
+        <div>
+            <h2 className={styles.headerTitle}>Ресторан {name}</h2>
+            <div className={styles.menuGroup}>
+                <NavLink
+                    to={`menu`}
+                    className={({isActive}) =>
+                        classNames(styles.root, styles.headings, {
+                            [styles.active]: isActive,
+                            light: theme === 'light',
+                            dark: theme === 'dark',
+
+                        })
                     }
-                </ul>) : (
-                    <div>Блюд в меню нет в наличии.</div>
-                )
-            }
-            <p/>
-            <h3 className={styles.headerTitle}>Отзывы</h3>
-            {reviews.length ? (
-                <ul>
-                    {
-                        reviews.map((reviewId) => <Review key={reviewId} reviewId={reviewId}/>)
+                >
+                    Меню
+                </NavLink>
+                <NavLink
+                    to={`reviews`}
+                    className={({isActive}) =>
+                        classNames(styles.root, styles.headings, {
+                            [styles.active]: isActive,
+                            light: theme === 'light',
+                            dark: theme === 'dark',
+                        })
                     }
-                </ul>) : (
-                <div>Отзывов пока что нет.</div>
-            )}
-            <ReviewFrom/>
+                >
+                    Отзывы
+                </NavLink>
+            </div>
         </div>
     );
 }

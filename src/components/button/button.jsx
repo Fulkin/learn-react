@@ -14,8 +14,8 @@ export const Button = ({
     return (
         <button
             className={classNames(styles.button, {
-                [styles.light]: theme === "light",
-                [styles.dark]: theme === "dark",
+                light: theme === "light",
+                dark: theme === "dark",
                 [styles.tab]: type === "tab",
                 [styles.counter]: type === "counter",
             })}
