@@ -17,7 +17,7 @@ export const RestaurantTabContainer = ({id}) => {
 
     return (
         <NavLink
-            to={`/restaurants/${id}`}
+            to={`/restaurants/${id}/menu`}
             className={({isActive}) =>
                 classNames(styles.root, styles.headerTitle, {
                     [styles.active]: isActive,

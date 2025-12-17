@@ -1,42 +1,14 @@
 import styles from "./restaurant.module.css";
-import {NavLink} from "react-router";
-import classNames from "classnames";
-import {useContext} from "react";
-import {ThemeContext} from "../theme-context/index.js";
+import {RestaurantTabLink} from "./restaurant-tab-link.jsx";
 
 export const Restaurant = ({name}) => {
-
-    const theme = useContext(ThemeContext);
 
     return (
         <div>
             <h2 className={styles.headerTitle}>Ресторан {name}</h2>
             <div className={styles.menuGroup}>
-                <NavLink
-                    to={`menu`}
-                    className={({isActive}) =>
-                        classNames(styles.root, styles.headings, {
-                            [styles.active]: isActive,
-                            light: theme === 'light',
-                            dark: theme === 'dark',
-
-                        })
-                    }
-                >
-                    Меню
-                </NavLink>
-                <NavLink
-                    to={`reviews`}
-                    className={({isActive}) =>
-                        classNames(styles.root, styles.headings, {
-                            [styles.active]: isActive,
-                            light: theme === 'light',
-                            dark: theme === 'dark',
-                        })
-                    }
-                >
-                    Отзывы
-                </NavLink>
+                <RestaurantTabLink path={'menu'} title='Меню'/>
+                <RestaurantTabLink path={'reviews'} title='Отзывы'/>
             </div>
         </div>
     );
