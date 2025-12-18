@@ -1,3 +1,34 @@
 body {
     background-color: #35393c;
+    color: #d8c0a0;
+}
+
+.light {
+    background: #f1e0d1;
+    color: #7b4f22;
+}
+
+.light:hover {
+    background: #b47434;
+    color: #513215;
+}
+
+.light:disabled {
+    background: #7b4f22;
+    color: #f3caa3;
+}
+
+.dark {
+    background: #b47434;
+    color: #513215;
+}
+
+.dark:hover {
+    background: #dac3a3;
+    color: #7b4f22;
+}
+
+.dark:disabled {
+    background: #513215;
+    color: #b37334;
 }

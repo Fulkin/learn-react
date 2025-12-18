@@ -1,0 +1,23 @@
+.title {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #dbc4a4;
+    -webkit-text-stroke: 0.5px #c8a470;
+}
+
+.description {
+    font-size: 1.2em;
+
+    color: #dbc4a4;
+    margin-bottom: 2.5em;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.restaurantsLink {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+}

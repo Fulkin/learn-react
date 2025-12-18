@@ -12,6 +12,9 @@ export const ReviewFrom = () => {
 
     const user = useContext(UserContext);
 
+    if (!user) {
+        return null;
+    }
 
     return (
         <form onSubmit={(e) => e.preventDefault()}>
