@@ -1,9 +1,8 @@
-import {NavLink} from "react-router";
-import styles from "./home-page.module.css";
 import {useContext} from "react";
 import {ThemeContext} from "../theme-context/index.js";
+import styles from "./home-page.module.css";
+import {NavLink} from "react-router";
 import classNames from "classnames";
-
 
 export const HomePage = () => {
     const theme = useContext(ThemeContext);
@@ -28,4 +27,4 @@ export const HomePage = () => {
             </div>
         </div>
     );
-};
+}

@@ -8,10 +8,10 @@ import {store} from "../../redux/store.js";
 import {BrowserRouter, Route, Routes} from "react-router";
 import {HomePage} from "../page/home-page.jsx";
 import {RestaurantPage} from "../page/restaurant-page.jsx";
-import {RestaurantLayout} from "../restaurant-layout/restaurant-layout.jsx";
+import {RestaurantsPage} from "../page/restaurants-page.jsx";
 import {MenuPage} from "../page/menu-page.jsx";
 import {ReviewPage} from "../page/review-page.jsx";
-import {DishLayout} from "../dish-layout/dish-layout.jsx";
+import {DishLayout} from "../dish/dish-layout.jsx";
 import {DishPage} from "../page/dish-page.jsx";
 
 export const App = () => {
@@ -25,7 +25,7 @@ export const App = () => {
                         <Routes>
                             <Route element={<Layout/>}>
                                 <Route index element={<HomePage/>}/>
-                                <Route path="/restaurants" element={<RestaurantLayout/>}>
+                                <Route path="/restaurants" element={<RestaurantsPage/>}>
                                     <Route path=":restaurantId" element={<RestaurantPage/>}>
                                         <Route index element={<MenuPage/>}/>
                                         <Route path="menu" element={<MenuPage/>}/>
