@@ -10,11 +10,11 @@ export const RestaurantContainer = ({restaurantId}) => {
 
     const {isLoading, isError} = useRequest(getRestaurantById, restaurantId);
 
-    if (isLoading) {
+    if (isLoading || !restaurant) {
         return "loading...";
     }
 
-    if (isError || !restaurant) {
+    if (isError) {
         return "Error";
     }
 

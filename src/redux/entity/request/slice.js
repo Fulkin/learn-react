@@ -1,4 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {
+    REQUEST_STATUS_FULFILLED,
+    REQUEST_STATUS_PENDING,
+    REQUEST_STATUS_REJECTED
+} from "../../../components/redux/constants.js";
 
 export const requestSlice = createSlice({
     name: "request",
@@ -9,21 +14,21 @@ export const requestSlice = createSlice({
     extraReducers: (builder) =>
         builder
             .addMatcher(
-                ({type}) => type.endsWith("pending"),
+                ({type}) => type.endsWith(REQUEST_STATUS_PENDING),
                 (state, {meta}) => {
-                    state[meta.requestId] = "pending";
+                    state[meta.requestId] = REQUEST_STATUS_PENDING;
                 }
             )
             .addMatcher(
-                ({type}) => type.endsWith("fulfilled"),
+                ({type}) => type.endsWith(REQUEST_STATUS_FULFILLED),
                 (state, {meta}) => {
-                    state[meta.requestId] = "fulfilled";
+                    state[meta.requestId] = REQUEST_STATUS_FULFILLED;
                 }
             )
             .addMatcher(
-                ({type}) => type.endsWith("rejected"),
+                ({type}) => type.endsWith(REQUEST_STATUS_REJECTED),
                 (state, {meta}) => {
-                    state[meta.requestId] = "rejected";
+                    state[meta.requestId] = REQUEST_STATUS_REJECTED;
                 }
             ),
 });

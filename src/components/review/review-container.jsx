@@ -10,11 +10,11 @@ export const ReviewContainer = ({restaurantId}) => {
     const restaurant = useSelector(state => selectRestaurantById(state, restaurantId));
     const {isLoading, isError} = useRequest(getReviewsRestaurantById, restaurantId);
 
-    if (isLoading) {
+    if (isLoading || !restaurant) {
         return "loading...";
     }
 
-    if (isError || !restaurant) {
+    if (isError) {
         return "Error";
     }
 

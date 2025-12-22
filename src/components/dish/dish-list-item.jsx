@@ -16,11 +16,11 @@ export const DishListItem = ({dishId}) => {
         const id = dishId;
         const {value, increment, decrement} = useRangeCounter({id});
 
-        if (isLoading) {
+        if (isLoading || !dish) {
             return "loading...";
         }
 
-        if (isError || !dish) {
+        if (isError) {
             return "Error";
         }
 

@@ -12,11 +12,11 @@ export const DishContainer = ({dishId}) => {
 
     const {isLoading, isError} = useRequest(getDishById, id);
 
-    if (isLoading) {
+    if (isLoading || !dish) {
         return "loading...";
     }
 
-    if (isError || !dish) {
+    if (isError) {
         return "Error";
     }
 

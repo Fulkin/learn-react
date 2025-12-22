@@ -10,11 +10,11 @@ export const ReviewUser = ({userId}) => {
 
     const {isLoading, isError} = useRequest(getUsers);
 
-    if (isLoading) {
+    if (isLoading || !user) {
         return "loading...";
     }
 
-    if (isError || !user) {
+    if (isError) {
         return "Error";
     }
 

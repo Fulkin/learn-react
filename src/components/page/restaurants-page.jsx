@@ -11,11 +11,11 @@ export const RestaurantsPage = () => {
 
     const {isLoading, isError} = useRequest(getRestaurants);
 
-    if (isLoading) {
+    if (isLoading || !restaurantIds.length) {
         return "loading...";
     }
 
-    if (isError || !restaurantIds.length) {
+    if (isError) {
         return "Error";
     }
 
