@@ -6,7 +6,11 @@ export const useAuthUser = () => {
     const user = useContext(UserContext);
 
     const handleLogin = () => {
-        const userData = {name: 'Иван Иванов'}; // из ответа сервера
+        const userData = {
+            id: "a304959a-76c0-4b34-954a-b38dbf310360",
+            name: 'Antony',
+            isAuth: true,
+        };
         setUser(userData);
     };
 

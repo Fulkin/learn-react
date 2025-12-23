@@ -6,9 +6,9 @@ import {Button} from "../button/button.jsx";
 import {useContext} from "react";
 import {UserContext} from "../user-context/index.js";
 
-export const ReviewFrom = () => {
-    const {form, setName, setText, incrementRating, decrementRating, clear} = useForm();
-    const {name, text, rating} = form;
+export const ReviewFrom = ({onSubmit, isSubmitDisabled}) => {
+    const {form, setText, incrementRating, decrementRating, clear} = useForm();
+    const {text, rating} = form;
 
     const user = useContext(UserContext);
 
@@ -18,19 +18,6 @@ export const ReviewFrom = () => {
 
     return (
         <form onSubmit={(e) => e.preventDefault()}>
-            <div className={styles.group}>
-                <label className={styles.title}>Name</label>
-                {user ? (<div>{user.name}</div>)
-                    :
-                    (<input
-                        className={styles.input}
-                        value={name}
-                        onChange={(e) => {
-                            setName(e.target.value)
-                        }}
-                    />)
-                }
-            </div>
             <div className={styles.group}>
                 <label className={styles.title}>Text</label>
                 <input
@@ -50,9 +37,11 @@ export const ReviewFrom = () => {
                 />
             </div>
             <Button
-                title="Clear"
-                onClick={clear}
+                title="Submit"
+                disabled={isSubmitDisabled}
+                onClick={() => onSubmit(form)}
             />
+            <Button title="Clear" onClick={clear}/>
         </form>
     )
 }

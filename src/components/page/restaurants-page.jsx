@@ -1,21 +1,20 @@
 import {Tabs} from "../tabs/tabs.jsx";
-import {useSelector} from "react-redux";
-import {Outlet} from "react-router";
-import {selectRestaurantsIds} from "../../redux/entity/restaurant/slice.js";
-import {RestaurantTabContainer} from "../restaurant-tab/restaurant-tab.jsx";
-import {getRestaurants} from "../../redux/entity/restaurant/get-restaurants.js";
-import {useRequest} from "../../redux/hooks/use-request.js";
+import {NavLink, Outlet} from "react-router";
+import {useGetRestaurantsQuery} from "../../redux/services/api/index.js";
+import classNames from "classnames";
+import styles from "./styles/restaurant-page.module.css";
+import {useContext} from "react";
+import {ThemeContext} from "../theme-context/index.js";
 
 export const RestaurantsPage = () => {
-    const restaurantIds = useSelector(selectRestaurantsIds);
-
-    const {isLoading, isError} = useRequest(getRestaurants);
+    const {data, isLoading, isError} = useGetRestaurantsQuery();
+    const theme = useContext(ThemeContext);
 
     if (isLoading) {
         return "loading...";
     }
 
-    if (isError || !restaurantIds.length) {
+    if (isError) {
         return "Error";
     }
 
@@ -26,11 +25,21 @@ export const RestaurantsPage = () => {
             </h1>
 
             <Tabs>
-                {restaurantIds.map((id) => (
-                    <RestaurantTabContainer
+                {data.map(({id, name}) => (
+                    <NavLink
                         key={id}
-                        id={id}
-                    />
+                        to={`/restaurants/${id}/menu`}
+                        className={({isActive}) =>
+                            classNames(styles.root, styles.headerTitle, {
+                                [styles.active]: isActive,
+                                light: theme === 'light',
+                                dark: theme === 'dark',
+
+                            })
+                        }
+                    >
+                        {name}
+                    </NavLink>
                 ))}
             </Tabs>
 

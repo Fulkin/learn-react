@@ -1,5 +1,10 @@
 import {createEntityAdapter, createSlice} from "@reduxjs/toolkit";
 import {getUsers} from "./get-users.js";
+import {
+    REQUEST_STATUS_FULFILLED,
+    REQUEST_STATUS_PENDING,
+    REQUEST_STATUS_REJECTED
+} from "../../../components/redux/constants.js";
 
 const entityAdapter = createEntityAdapter();
 
@@ -13,15 +18,15 @@ export const userSlice = createSlice({
     extraReducers: (builder) =>
         builder
             .addCase(getUsers.pending, (state) => {
-                state.requestStatus = "pending";
+                state.requestStatus = REQUEST_STATUS_PENDING;
             })
             .addCase(getUsers.fulfilled, (state, {payload}) => {
-                state.requestStatus = "fulfilled";
+                state.requestStatus = REQUEST_STATUS_FULFILLED;
 
                 entityAdapter.setAll(state, payload);
             })
             .addCase(getUsers.rejected, (state) => {
-                state.requestStatus = "rejected";
+                state.requestStatus = REQUEST_STATUS_REJECTED;
             }),
 });
 

@@ -1,29 +1,32 @@
-import {useSelector} from "react-redux";
-import {selectRestaurantById} from "../../redux/entity/restaurant/slice.js";
 import {Restaurant} from "./restaurant.jsx";
 import {Outlet} from "react-router";
-import {useRequest} from "../../redux/hooks/use-request.js";
-import {getRestaurantById} from "../../redux/entity/restaurant/get-restaurant-by-id.js";
+import {useAddReviewMutation, useGetRestaurantByIdQuery} from "../../redux/services/api/index.js";
+import {ReviewFrom} from "../review-form/review-form.jsx";
+import {useContext} from "react";
+import {UserContext} from "../user-context/index.js";
 
 export const RestaurantContainer = ({restaurantId}) => {
-    const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId));
-
-    const {isLoading, isError} = useRequest(getRestaurantById, restaurantId);
+    const user = useContext(UserContext);
+    const {data, isLoading, isError} = useGetRestaurantByIdQuery(restaurantId);
+    const [addReview, {isLoading: isAddReviewLoading}] = useAddReviewMutation();
+    const handleAddReview = (review) =>
+        addReview({restaurantId, review: {...review, userId: user.id}});
 
     if (isLoading) {
         return "loading...";
     }
 
-    if (isError || !restaurant) {
+    if (isError) {
         return "Error";
     }
 
-    const {name, description} = restaurant;
+    const {name, description} = data;
 
     return (
         <div>
             <Restaurant name={name} description={description}/>
             <Outlet/>
+            <ReviewFrom onSubmit={handleAddReview} isSubmitDisabled={isAddReviewLoading}/>
         </div>
     );
 };
