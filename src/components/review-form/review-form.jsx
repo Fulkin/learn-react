@@ -6,7 +6,7 @@ import {Button} from "../button/button.jsx";
 import {useContext} from "react";
 import {UserContext} from "../user-context/index.js";
 
-export const ReviewFrom = () => {
+export const ReviewFrom = ({onSubmit, isSubmitDisabled}) => {
     const {form, setName, setText, incrementRating, decrementRating, clear} = useForm();
     const {name, text, rating} = form;
 
@@ -50,9 +50,11 @@ export const ReviewFrom = () => {
                 />
             </div>
             <Button
-                title="Clear"
-                onClick={clear}
+                title="Submit"
+                disabled={isSubmitDisabled}
+                onClick={() => onSubmit(form)}
             />
+            <Button title="Clear" onClick={clear}/>
         </form>
     )
 }

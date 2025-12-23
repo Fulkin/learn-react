@@ -5,12 +5,7 @@ import {reviewSlice} from "./entity/review/slice.js";
 import {userSlice} from "./entity/user/slice.js";
 import {cartSlice} from "./cart/slice.js";
 import {requestSlice} from "./entity/request/slice.js";
-
-const loggerMiddleware = (store) => (next) => (action) => {
-
-    console.log(action);
-    return next(action);
-}
+import {api} from "./services/api/index.js";
 
 export const store = configureStore({
         reducer: {
@@ -20,8 +15,9 @@ export const store = configureStore({
             [userSlice.name]: userSlice.reducer,
             [cartSlice.name]: cartSlice.reducer,
             [requestSlice.name]: requestSlice.reducer,
+            [api.reducerPath]: api.reducer,
         },
         middleware: (getDefaultMiddlewares) =>
-            getDefaultMiddlewares().concat(loggerMiddleware)
+            getDefaultMiddlewares().concat(api.middleware)
     }
 )
