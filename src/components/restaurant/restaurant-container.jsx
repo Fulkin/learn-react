@@ -10,7 +10,7 @@ export const RestaurantContainer = ({restaurantId}) => {
     const {data, isLoading, isError} = useGetRestaurantByIdQuery(restaurantId);
     const [addReview, {isLoading: isAddReviewLoading}] = useAddReviewMutation();
     const handleAddReview = (review) =>
-        addReview({restaurantId, review: {...review, user: user.id}});
+        addReview({restaurantId, review: {...review, userId: user.id}});
 
     if (isLoading) {
         return "loading...";

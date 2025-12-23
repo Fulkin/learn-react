@@ -7,8 +7,8 @@ import {useContext} from "react";
 import {UserContext} from "../user-context/index.js";
 
 export const ReviewFrom = ({onSubmit, isSubmitDisabled}) => {
-    const {form, setName, setText, incrementRating, decrementRating, clear} = useForm();
-    const {name, text, rating} = form;
+    const {form, setText, incrementRating, decrementRating, clear} = useForm();
+    const {text, rating} = form;
 
     const user = useContext(UserContext);
 
@@ -18,19 +18,6 @@ export const ReviewFrom = ({onSubmit, isSubmitDisabled}) => {
 
     return (
         <form onSubmit={(e) => e.preventDefault()}>
-            <div className={styles.group}>
-                <label className={styles.title}>Name</label>
-                {user ? (<div>{user.name}</div>)
-                    :
-                    (<input
-                        className={styles.input}
-                        value={name}
-                        onChange={(e) => {
-                            setName(e.target.value)
-                        }}
-                    />)
-                }
-            </div>
             <div className={styles.group}>
                 <label className={styles.title}>Text</label>
                 <input

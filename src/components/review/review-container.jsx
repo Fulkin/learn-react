@@ -1,20 +1,18 @@
-import {useGetReviewsByRestaurantIdQuery, useGetUsersQuery} from "../../redux/services/api/index.js";
+import {useGetReviewsByRestaurantIdQuery} from "../../redux/services/api/index.js";
 import {Reviews} from "../reviews/reviews.jsx";
 
 export const ReviewContainer = ({restaurantId}) => {
     const {
         data: reviews,
-        isLoading: isLoadingReview,
-        isError: isErrorReview
+        isLoading,
+        isError
     } = useGetReviewsByRestaurantIdQuery(restaurantId);
 
-    const {isLoading: isLoadingUser, isError: isErrorUser} = useGetUsersQuery();
-
-    if (isLoadingReview || isLoadingUser) {
+    if (isLoading) {
         return "loading...";
     }
 
-    if (isErrorReview || isErrorUser) {
+    if (isError) {
         return "Error";
     }
 
