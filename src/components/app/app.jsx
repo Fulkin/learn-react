@@ -13,34 +13,37 @@ import {MenuPage} from "../page/menu-page.jsx";
 import {ReviewPage} from "../page/review-page.jsx";
 import {DishLayout} from "../dish/dish-layout.jsx";
 import {DishPage} from "../page/dish-page.jsx";
+import {ErrorBoundary} from "../error-boundary/error-boundary.jsx";
 
 export const App = () => {
 
     return (
-        <Provider store={store}>
-            <ThemeContextProvider>
-                <UserContextProvider>
-                    <ScrollProgress/>
-                    <BrowserRouter>
-                        <Routes>
-                            <Route element={<Layout/>}>
-                                <Route index element={<HomePage/>}/>
-                                <Route path="/restaurants" element={<RestaurantsPage/>}>
-                                    <Route path=":restaurantId" element={<RestaurantPage/>}>
-                                        <Route index element={<MenuPage/>}/>
-                                        <Route path="menu" element={<MenuPage/>}/>
-                                        <Route path="reviews" element={<ReviewPage/>}/>
+        <ErrorBoundary>
+            <Provider store={store}>
+                <ThemeContextProvider>
+                    <UserContextProvider>
+                        <ScrollProgress/>
+                        <BrowserRouter>
+                            <Routes>
+                                <Route element={<Layout/>}>
+                                    <Route index element={<HomePage/>}/>
+                                    <Route path="/restaurants" element={<RestaurantsPage/>}>
+                                        <Route path=":restaurantId" element={<RestaurantPage/>}>
+                                            <Route index element={<MenuPage/>}/>
+                                            <Route path="menu" element={<MenuPage/>}/>
+                                            <Route path="reviews" element={<ReviewPage/>}/>
+                                        </Route>
                                     </Route>
+                                    <Route path="/dish" element={<DishLayout/>}>
+                                        <Route path=":dishId" element={<DishPage/>}/>
+                                    </Route>
+                                    <Route path='*' element={<div>Not Found</div>}/>
                                 </Route>
-                                <Route path="/dish" element={<DishLayout/>}>
-                                    <Route path=":dishId" element={<DishPage/>}/>
-                                </Route>
-                                <Route path='*' element={<div>Not Found</div>}/>
-                            </Route>
-                        </Routes>
-                    </BrowserRouter>
-                </UserContextProvider>
-            </ThemeContextProvider>
-        </Provider>
+                            </Routes>
+                        </BrowserRouter>
+                    </UserContextProvider>
+                </ThemeContextProvider>
+            </Provider>
+        </ErrorBoundary>
     )
 }

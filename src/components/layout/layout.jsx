@@ -8,9 +8,9 @@ export const Layout = () => {
         <div>
             <Header title='Restaurants'/>
             <main>
+                <CartContainer/>
                 <Outlet/>
             </main>
-            <CartContainer/>
             <footer className={styles.footer}>©2025 Restaurants</footer>
         </div>
     );
