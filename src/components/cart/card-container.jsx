@@ -4,6 +4,7 @@ import {Cart} from "./cart.jsx";
 import {useContext, useState} from "react";
 import {UserContext} from "../user-context/index.js";
 import {Modal} from "../modal/modal.jsx";
+import {Button} from "../button/button.jsx";
 
 export const CartContainer = () => {
     const user = useContext(UserContext);
@@ -16,7 +17,8 @@ export const CartContainer = () => {
 
     return (
         <>
-            <button onClick={() => setIsVisible(true)}>Cart</button>
+            <Button title="Cart" onClick={() => setIsVisible(true)}/>
+            <p/>
             {isVisible &&
                 <Modal onClose={() => setIsVisible(false)}>
                     {
